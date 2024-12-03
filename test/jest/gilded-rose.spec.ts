@@ -5,6 +5,7 @@ describe('Gilded Rose', () => {
         // Arrange
         const gildedRose = new GildedRose([new Item('foo', 0, 0)]);
 
+
         // Act
         const items = gildedRose.updateQuality();
 

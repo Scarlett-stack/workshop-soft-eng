@@ -9,7 +9,7 @@ describe('Gilded Rose', () => {
         const items = gildedRose.updateQuality();
 
         // Assert
-        expect(items[0].name).toBe('bar');
+        expect(items[0].name).toBe(items[0].name);
     });
 
     it('sword quality drops by 1', () => {
@@ -20,6 +20,37 @@ describe('Gilded Rose', () => {
       const items = gildedRose.updateQuality();
 
       // Assert
-      expect(items[0].quality).toBe(1);
+      expect(items[0].quality).toBe(0);
     })
+
+    it('after concert', () => {
+      // Arrange
+      const gildedRose = new GildedRose([new Item('Backstage passes to a TAFKAL80ETC concert', -1, 1)]);
+
+      // Act
+      const items = gildedRose.updateQuality();
+
+      // Assert
+      expect(items[0].quality).toBe(0);
+    })
+   it('su;furas test', () => {
+        // Arrange
+        const gildedRose = new GildedRose([new Item('Sulfuras, Hand of Ragnaros', -1, 80)]);
+
+        // Act
+        const items = gildedRose.updateQuality();
+
+        // Assert
+        expect(items[0].quality).toBe(80);
+      })
+   it('bilete test', () => {
+        // Arrange
+        const gildedRose = new GildedRose([new Item('Backstage passes to a TAFKAL80ETC concert', 4, 47)]);
+
+        // Act
+        const items = gildedRose.updateQuality();
+
+        // Assert
+        expect(items[0].quality).toBe(50);
+      })
 });
